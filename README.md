@@ -158,7 +158,7 @@ public class FictionIterator implements LibraryIterator {
   @Override
   public Book nextBook() {
     Book book = null;
-    for (; position < bookList.size(); position++) {
+    for (; position &lt; bookList.size(); position++) {
       if ("Fiction".equals((bookList.get(position)).getBookType())) {
         book = bookList.get(position);
         position++;
@@ -170,7 +170,7 @@ public class FictionIterator implements LibraryIterator {
  
   @Override
   public boolean isLastBook() {
-    for (int i = position; i < bookList.size(); i++) {
+    for (int i = position; i &lt; bookList.size(); i++) {
       if ("Fiction".equals((bookList.get(i)).getBookType())) {
         return false;
       }
@@ -180,7 +180,7 @@ public class FictionIterator implements LibraryIterator {
  
   @Override
   public Book currentBook() {
-    if (position < bookList.size()) {
+    if (position &lt; bookList.size()) {
       return bookList.get(position);
     }
     return null;
@@ -206,7 +206,7 @@ public class NonFictionIterator implements LibraryIterator {
   @Override
   public Book nextBook() {
     Book book = null;
-    for (; position < bookList.size(); position++) {
+    for (; position &lt; bookList.size(); position++) {
       if ("NonFiction".equals((bookList.get(position)).getBookType())) {
         book = bookList.get(position);
         position++;
@@ -218,7 +218,7 @@ public class NonFictionIterator implements LibraryIterator {
  
   @Override
   public boolean isLastBook() {
-    for (int i = position; i < bookList.size(); i++) {
+    for (int i = position; i &lt; bookList.size(); i++) {
       if ("NonFiction".equals((bookList.get(i)).getBookType())) {
         return false;
       }
@@ -228,7 +228,7 @@ public class NonFictionIterator implements LibraryIterator {
  
   @Override
   public Book currentBook() {
-    if (position < bookList.size()) {
+    if (position &lt; bookList.size()) {
       return bookList.get(position);
     }
     return null;

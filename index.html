@@ -213,7 +213,36 @@ public class FictionIterator implements LibraryIterator {
   @Override
   public Book nextBook() {
     Book book = null;
-    for (; position 
+    for (; position &lt; bookList.size(); position++) {
+      if ("Fiction".equals((bookList.get(position)).getBookType())) {
+        book = bookList.get(position);
+        position++;
+        break;
+      }
+    }
+    return book;
+  }
+ 
+  @Override
+  public boolean isLastBook() {
+    for (int i = position; i &lt; bookList.size(); i++) {
+      if ("Fiction".equals((bookList.get(i)).getBookType())) {
+        return false;
+      }
+    }
+    return true;
+  }
+ 
+  @Override
+  public Book currentBook() {
+    if (position &lt; bookList.size()) {
+      return bookList.get(position);
+    }
+    return null;
+  }
+ 
+}
+</pre>
 
 <h3>
 <a name="nonfictioniteratorjava" class="anchor" href="#nonfictioniteratorjava"><span class="octicon octicon-link"></span></a>NonFictionIterator.java</h3>
@@ -233,7 +262,36 @@ public class NonFictionIterator implements LibraryIterator {
   @Override
   public Book nextBook() {
     Book book = null;
-    for (; position 
+    for (; position &lt; bookList.size(); position++) {
+      if ("NonFiction".equals((bookList.get(position)).getBookType())) {
+        book = bookList.get(position);
+        position++;
+        break;
+      }
+    }
+    return book;
+  }
+ 
+  @Override
+  public boolean isLastBook() {
+    for (int i = position; i &lt; bookList.size(); i++) {
+      if ("NonFiction".equals((bookList.get(i)).getBookType())) {
+        return false;
+      }
+    }
+    return true;
+  }
+ 
+  @Override
+  public Book currentBook() {
+    if (position &lt; bookList.size()) {
+      return bookList.get(position);
+    }
+    return null;
+  }
+ 
+}
+</pre>
 
 <h3>
 <a name="iteratorsamplejava" class="anchor" href="#iteratorsamplejava"><span class="octicon octicon-link"></span></a>IteratorSample.java</h3>
@@ -272,7 +330,7 @@ Fiction Book: A Tale of Two Cities
 Fiction Book: The Theory of Everything 
 NonFiction Book: A Brief History of Time 
 NonFiction Book: The Large Scale Structure of Space-Time
-</pre></pre></pre>
+</pre>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/johntday">johntday</a></p>
